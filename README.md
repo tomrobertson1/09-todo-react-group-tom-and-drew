@@ -14,9 +14,7 @@ You will also see any lint errors in the console.
 
 ### `npm run deploy`
 
-**PREREQUISITE: Edit "homepage" in `package.json` file and replace "username" with your username.**
-
-**PREREQUISITE: Change the "source branch" in the Github Pages setting on your Github repo to `gh-pages`**
+**PREREQUISITE: Edit the `homepage` field in `package.json` file and replace "GROUPNAME" with the name of your group.**
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
