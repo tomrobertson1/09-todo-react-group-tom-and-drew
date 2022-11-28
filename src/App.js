@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Todo from './Todo';
+import NewTodo from './NewTodo';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           </div>
         </div>
         <div id='main-page'>
+          <NewTodo />
           <Todo />
         </div>
       </section> 

@@ -1,42 +1,6 @@
-#main-page{
-    position:relative;
-    text-align: center;
-    justify-content: center;
-    margin-left: 10%;
-    margin-right:10%;
-    top: 50px;
-}
-
-.delete-button:hover{
-    cursor: pointer;
-    border:1px solid red;
-    border-radius: 5px;
-    background-color: rgba(255, 0, 0, 0.154);
-}
-#submit{
-    background-color: rgb(31, 185, 113);
-    border-radius:5px;
-    color: white;
-    text-align: center;
-    min-width: 75px;
-}
-#submit:hover{
-    cursor: pointer;
-}
-.unchecked-box:hover{
-    cursor: pointer;
-    background-color: rgba(0, 128, 0, 0.35);
-    border-radius: 5px;
-}
-.checked-box:hover{
-    cursor:pointer;
-    background-color:rgba(0, 128, 0, 0.35);
-    border-radius: 5px;
-}
 #displayToDos{
     margin-top: 20px;
 }
-
 .row{
     margin-bottom:2%;
 }
@@ -46,32 +10,4 @@
     padding:5px 0px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     margin: 15px 0px;
-}
-.col-6 {
-    border-radius: 5px;
-}
-#newtaskbox{
-    background-color: #90b4f1;
-    border-radius:5px;
-    padding:10px 0px;
-    margin-top: 20px;
-    padding-left: 5%;
-    padding-right:5%;
-    margin-bottom: 5px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    justify-content: center;
-    align-items:center;
-}
-#newtaskbox > .row {
-    width: 100%;
-    margin: 0px;
-    justify-content: center;
-    align-items: center;
-}
-.col-2{
-    position: relative;
-    width: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
 }
