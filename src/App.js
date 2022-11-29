@@ -5,13 +5,13 @@ import NewTodo from './NewTodo';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: []
-    };
-    this.addTodo = this.addTodo.bind(this);
-  };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     todos: []
+  //   };
+  //   this.addTodo = this.addTodo.bind(this);
+  // };
 
   componentDidMount() {
     // Make API call to fetch existing Todos. 
@@ -35,7 +35,7 @@ class App extends Component {
       if (this.readyState === 4 && this.status === 200) {
           // var todo = JSON.parse(this.responseText);
           // console.log(todo);
-
+          event.preventDefault();
           self.setState({
             todos: [...self.state.todos, JSON.parse(this.responseText)]
           })
