@@ -5,22 +5,24 @@ import NewTodo from './NewTodo';
 
 class App extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     todos: []
-  //   };
-  //   this.addTodo = this.addTodo.bind(this);
-  // };
+  constructor(props) {
+    super(props)
+    this.state = {
+      todos: []
+    };
+  // newInput = {}
+    this.addToDo = this.addToDo.bind(this);
+  // this.handleinputchagne = this.handleinputchange.bind(this);
+  }
 
-  componentDidMount() {
-    // Make API call to fetch existing Todos. 
-    fetch("https://cse204.work/todos/54b827-b0e225-c6b963-9c08fd-dc654c")
-      .then(function (response) {
-        this.setState({todos: JSON.parse(response)});
-      }
-   )
-  };
+  // componentDidMount() {
+  //   // Make API call to fetch existing Todos. 
+  //   fetch("https://cse204.work/todos/54b827-b0e225-c6b963-9c08fd-dc654c")
+  //     .then(function (response) {
+  //       this.setState({todos: JSON.parse(response)});
+  //     }
+  //  )
+  // };
 
   addToDo(event) {
     // need to get values from input form
@@ -73,6 +75,30 @@ class App extends Component {
 
 // }
 
+
+
+// handleinputchange(event){
+//   alert(event.target.value);
+//   this.setState({
+//     newInput: event.target.value
+//   })
+// }
+
+// handleAddbutton(event){
+//   event.precetnDefault();
+//   //ajax call 
+//   ajaxobject = new XMLHttpRequest
+//   let self = this;
+//   ajaxobject.onreadystatechange = () => {
+//     self.state.newInput;
+//     this.readystate ; 
+//   }
+// }
+
+// handleDelete(todoID){
+
+// }
+
   render() {
     return (
      <section>
@@ -84,7 +110,10 @@ class App extends Component {
           </div>
         </div>
         <div id='main-page'>
-          <NewTodo addTodo={this.addTodo}/>
+          {/* <NewTodo addTodo={this.addTodo}/> */}
+          {/* <NewTodo newInput={this.state.newInput} handleinputchange={this.handleinputchange}/> */}
+          <NewTodo />
+    
           {/* {this.state.todos.map((todo) =>
          <Todo key={todo.id}
            text={todo.text} />
