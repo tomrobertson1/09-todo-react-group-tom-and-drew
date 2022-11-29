@@ -7,7 +7,7 @@ class NewTodo extends Component {
         <div class="container" id="newtaskbox">
         <div class="row">
             <div class="col-10">
-                <form id="add-task">
+                <form onSubmit={this.addTodo} id="add-task">
                     <input type="text" placeholder="Add a new task here..." id="textbox"></input>
                 </form>
             </div>
