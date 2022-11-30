@@ -9,10 +9,10 @@ class Todo extends Component {
 
   render() {
     return (
-                <article className="ToDo" id="{this.props.key}">
+                <article className="ToDo" id={this.props.id}>
                   {/* <p> example to do</p> */}
 
-                  <p>{this.props.id}</p>
+                  <p>{this.props.text}</p>
                   
                   <p>example test</p>
                   {/* <button onClick = {this.handleDelete}>Delete</button> */}

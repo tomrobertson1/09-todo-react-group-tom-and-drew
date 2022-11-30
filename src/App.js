@@ -166,12 +166,30 @@ class App extends Component {
        {console.log(this.state.todos[0])}
        {console.log(typeof this.state.todos)}
        {console.log(this.state.todos.length, "length")} */}
-       {this.state.todos.map((todo) =>
+       {/* {this.state.todos.map((todo) =>
        console.log(todo.id, "id")
       
+       )} */}
+       {console.log(this.state.todos)}
+       {this.state.todos.map((todo) =>
+       console.log(todo.id)
        )}
-       {console.log(this.state.todos[0])}
-          <Todo />
+
+       {/* {console.log(Object.keys(this.state.todos).length)} */}
+       {/* {this.state.todos.map((todo) =>
+         <Todo key={todo.id}
+           text={todo.text} />
+       )} */}
+       {/* {this.state.todos.map((todo) =>
+         <Todo id={todo[0].id}
+           text={todo[0].text} />
+       )} */}
+
+          <Todo id="3456" text="Profit" />
+          {this.state.todos.map(todo =>
+         console.log(todo.text, "text") 
+       )}
+
 
         </div>
       </section> 
