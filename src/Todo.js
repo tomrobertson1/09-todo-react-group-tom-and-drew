@@ -3,19 +3,22 @@ import './Todo.css';
 
 class Todo extends Component {
 
-handleDelete(){
-  this.props.handleDelete(this.props.id)
-}
+// handleDelete(){
+//   this.props.handleDelete(this.props.id)
+// }
 
   render() {
     return (
-                <div className="container" id="displayToDos">
+                <article className="ToDo" id="{this.props.key}">
                   {/* <p> example to do</p> */}
 
-                  {/* <p>{this.props.text}</p> */}
+                  <p>{this.props.id}</p>
+                  
                   <p>example test</p>
-                  <button onClick = {this.handleDelete}>Delete</button>
-                </div>
+                  {/* <button onClick = {this.handleDelete}>Delete</button> */}
+                  {/* button, text, button */}
+                </article>
+
     );
   }
 }

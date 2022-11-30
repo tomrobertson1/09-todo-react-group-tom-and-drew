@@ -11,25 +11,65 @@ class App extends Component {
       todos: []
     };
   // newInput = {}
-    this.addToDo = this.addToDo.bind(this);
+    // this.addToDo = this.addToDo.bind(this);
+    // this.testing = this.testing.bind(this);
   // this.handleinputchagne = this.handleinputchange.bind(this);
+    this.addToDo = this.addToDo.bind(this);
   }
 
-  // componentDidMount() {
-  //   // Make API call to fetch existing Todos. 
-  //   fetch("https://cse204.work/todos/54b827-b0e225-c6b963-9c08fd-dc654c")
+  componentDidMount() {
+    // Make API call to fetch existing Todos. 
+  //   fetch("https://cse204.work/todos")
   //     .then(function (response) {
   //       this.setState({todos: JSON.parse(response)});
   //     }
   //  )
-  // };
+
+    var xhttp = new XMLHttpRequest();
+    var self = this;
+    // var todoarray = this.state.todos;
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) { 
+          self.setState({
+            todos: [...self.state.todos, JSON.parse(this.responseText)]
+          })
+          // console.log(self.state.todos);
+          // var todotesting = JSON.parse(this.responseText);
+          // testing(todotesting)
+          
+          // this.state.todos = self.state.todos;
+          // self.setState({input: ''});
+        }
+        // console.log(self.state.todos, "test")
+        // todoarray = self.state.todos;
+        // console.log(todoarray, "3")
+        
+    };
+    xhttp.open("GET", "https://cse204.work/todos", true);
+    xhttp.setRequestHeader("x-api-key","54b827-b0e225-c6b963-9c08fd-dc654c");
+    xhttp.send();
+    // console.log(todoarray, "yes");
+    // this.state.todos = todoarray;
+    // function testing(array) {
+    //   console.log(array, "yes")
+    //   // // console.log(this.state.todos, "without");
+    //   console.log(this.state.todos)
+    //   // console.log(this.state.todos, "with");
+    // }
+    // console.log(this.state.todos, "test1")
+  }
+
 
   addToDo(event) {
     // need to get values from input form
     // var textbox = document.getElementById("textbox")
     // this is the ajax call
+    event.preventDefault();
+
+    var textbox = document.getElementById("textbox");
+    
     var data = {
-      text : this.state.input
+      text : textbox.value
   }
   var self = this;
   var xhttp2 = new XMLHttpRequest();
@@ -37,12 +77,12 @@ class App extends Component {
       if (this.readyState === 4 && this.status === 200) {
           // var todo = JSON.parse(this.responseText);
           // console.log(todo);
-          event.preventDefault();
           self.setState({
             todos: [...self.state.todos, JSON.parse(this.responseText)]
           })
-          // clear the input field
-          self.setState({input: ''});
+          // console.log(self.state.todos, "sure")
+          // // clear the input field
+          // self.setState({input: ''});
       } else if (this.readyState === 4) {
           console.log(this.responseText);
       }
@@ -52,7 +92,6 @@ class App extends Component {
   xhttp2.setRequestHeader("Content-type", "application/json");
   xhttp2.setRequestHeader("x-api-key", "54b827-b0e225-c6b963-9c08fd-dc654c");
   xhttp2.send(JSON.stringify(data));
-    
   }
 
 // will add this function later
@@ -99,12 +138,13 @@ class App extends Component {
 
 // }
 
+
   render() {
     return (
      <section>
-        <div class="container-fluid" id="header">
-          <div class="row">
-            <div class="col">
+        <div className="container-fluid" id="header">
+          <div className="row">
+            <div className="col">
               <h1>Your To Do List</h1>
             </div>
           </div>
@@ -112,15 +152,30 @@ class App extends Component {
         <div id='main-page'>
           {/* <NewTodo addTodo={this.addTodo}/> */}
           {/* <NewTodo newInput={this.state.newInput} handleinputchange={this.handleinputchange}/> */}
-          <NewTodo />
-    
+          <NewTodo addToDo={this.addToDo} />
+  
           {/* {this.state.todos.map((todo) =>
          <Todo key={todo.id}
            text={todo.text} />
-        )} */}
+       )} */}
+
+       {/* {this.state.todos.map((todo) =>
+       console.log(todo.id, "ok")
+       )}
+       
+       {console.log(this.state.todos[0])}
+       {console.log(typeof this.state.todos)}
+       {console.log(this.state.todos.length, "length")} */}
+       {this.state.todos.map((todo) =>
+       console.log(todo.id, "id")
+      
+       )}
+       {console.log(this.state.todos[0])}
           <Todo />
+
         </div>
       </section> 
+      
   );
   }
 }
