@@ -4,10 +4,22 @@
 .row{
     margin-bottom:2%;
 }
-#displayToDos > .row {
+/* #displayToDos > .row {
     background-color:#dee9fc;
     border-radius: 5px;
     padding:5px 0px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
     margin: 15px 0px;
+} */
+#displayToDos {
+    background-color:#dee9fc;
+    border-radius: 5px;
+    padding:5px 0px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    margin: 15px 0px;
+}
+
+#proptext{
+    text-align: center;
+    margin:auto;
 }

@@ -17,6 +17,20 @@ class NewTodo extends Component {
                 Submit
             </div>
         </div>
+        <div className='row' id="sortingbuttons">
+            <div className='col-1' >
+                Sort:
+            </div>
+            <div className='col-3' onClick={this.props.alphasort} >
+                Alphabetical
+            </div>
+            <div className='col-3' onClick={this.props.datesort} >
+                Created Date
+            </div>
+            <div className='col-3' onClick={this.props.completesort}>
+                Completed
+            </div>
+        </div>
     </div>
     );
   }

@@ -36,6 +36,20 @@ body {
 #submit:hover{
     cursor: pointer;
 }
+.col-3{
+    background-color: lightseagreen;
+    border-radius:5px;
+    color: black;
+    text-align: center;
+    min-width: 75px;
+    margin-left:2%;
+}
+.col-3:hover{
+    cursor: pointer;
+}
+#sortingbuttons{
+    padding-top:3%;
+}
 .unchecked-box:hover{
     cursor: pointer;
     background-color: rgba(0, 128, 0, 0.35);
