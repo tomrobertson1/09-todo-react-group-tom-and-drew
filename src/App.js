@@ -51,6 +51,8 @@ class App extends Component {
   }
 
 
+  
+
   addToDo(event) {
     // need to get values from input form
     // var textbox = document.getElementById("textbox")
@@ -103,6 +105,7 @@ class App extends Component {
                     }
 
   }
+  textbox.value = ''; // clears out text box
   }
 
 
@@ -122,19 +125,22 @@ class App extends Component {
           xhttp.open("DELETE", "https://cse204.work/todos/"+id, true);
           xhttp.setRequestHeader("x-api-key","54b827-b0e225-c6b963-9c08fd-dc654c");
           xhttp.send();
-          const remainingTodos = self.state.todos.filter((todo) => {
+
+
+
+          var todolist = [];
+          this.state.todos.filter((todo) => {
+            // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo we want to delete, keep it
             if (todo.id !== id) {
-              // console.log(todo.length,'single')
-              self.setState({
-                todos: [...self.state.todos, todo]
-              }
-              );
-              // console.log(self.state.todos,'yes!')
-              return todo;
+              todolist.push(todo)
             }
           });
-          this.setState();
-          //  console.log(this.state.todos,'final')
+
+          // reset todos array
+          this.setState({
+                todos: todolist
+              })
+
         }
 
 
@@ -162,6 +168,13 @@ class App extends Component {
         xhttp.setRequestHeader("x-api-key", "54b827-b0e225-c6b963-9c08fd-dc654c");
         xhttp.send(JSON.stringify(data));
 
+        this.state.todos.filter((todo) => {
+          // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo we want to delete, keep it
+          if (todo.id == id) {
+            todo.completed = false;
+          }
+        });
+        this.setState({ state: this.state });
         // still neeed to uncheck within todos array
    }
 
@@ -190,13 +203,22 @@ class App extends Component {
           xhttp.send(JSON.stringify(data));
 
 
+       this.state.todos.filter((todo) => {
+        // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo we want to delete, keep it
+        if (todo.id == id) {
+          todo.completed = true;
+        }
+      });
+      this.setState({ state: this.state });
           // still neeed to uncheck within todos array
         }
 
 
         alphasort(){
           //this should sort them
+          console.log(this.state.todos, "before")
           this.state.todos.sort();
+          console.log(this.state.todos, "after")
         }
 
 
@@ -227,6 +249,8 @@ class App extends Component {
 
 
   render() {
+
+      
     return (
      <section>
         <div className="container-fluid" id="header">
@@ -245,9 +269,12 @@ class App extends Component {
 
 
           {this.state.todos.map((todo) =>
-         <Todo key={todo.id} completed={todo.completed}
+         <Todo id={todo.id} completed={todo.completed}
            text={todo.text} deleteToDo = {this.deleteToDo} uncheck={this.uncheck} checkfun={this.checkfun} />
        )}
+       {/* {this.state.todos.map((todo) =>
+        console.log(todo, "final")
+      )} */}
 
       
        {/* {this.state.todos.map((todo) =>

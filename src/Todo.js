@@ -18,31 +18,33 @@ class Todo extends Component {
   handleDelete1(){
     // console.log('test')
     // console.log(this.props.id)
-    {this.props.deleteToDo(this.props.key)}
+    {this.props.deleteToDo(this.props.id)}
 
   }
 
   uncheck1(){
     console.log("uncheck1")
-    {this.props.uncheck(this.props.key)}
+    {this.props.uncheck(this.props.id)}
   }
 
   check1(){
     console.log("check1")
-    {this.props.checkfun(this.props.key)}
+    {this.props.checkfun(this.props.id)}
   }
   
 
   render() {
     // checking if completed for checked image
     var complete_state = this.props.completed;
-    if (complete_state == "true") {
+    if (complete_state == true) {
       var check = checked;
+      var line = "line-through"
       // another variable for check function
       var check_complete = this.uncheck1;
     }
     else{
       check = unchecked;
+      line = "none"
       check_complete = this.check1;
     }
 
@@ -57,7 +59,7 @@ class Todo extends Component {
 
                     </div>
 
-                    <div className="col-6"  >
+                    <div className="col-6" id={this.props.id} style={{ textDecoration: line }} >
                       {this.props.text}
                     </div>
 
