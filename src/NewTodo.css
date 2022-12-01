@@ -76,9 +76,9 @@ input {
     margin-top: 20px;
 }
 
-.row{
+/* .row{
     margin-bottom:2%;
-}
+} */
 #displayToDos > .row {
     background-color:#dee9fc;
     border-radius: 5px;

@@ -20,6 +20,7 @@ class App extends Component {
     this.checkfun = this.checkfun.bind(this);
     this.alphasort = this.alphasort.bind(this);
     this.completesort = this.completesort.bind(this);
+    this.datesort = this.datesort.bind(this);
   }
 
   componentDidMount() {
@@ -215,35 +216,49 @@ class App extends Component {
 
 
         alphasort(){
-          //this should sort them
-          console.log(this.state.todos, "before")
-          this.state.todos.sort();
-          console.log(this.state.todos, "after")
+          // https://flaviocopes.com/how-to-sort-array-of-objects-by-property-javascript/
+          this.state.todos.sort((a,b) =>{
+            if (a.text > b.text){
+              return 1
+            }
+            else{
+              return -1
+            }
+          })
+          this.setState({ state: this.state });
         }
 
 
         completesort(){
           // this should empty array, put uncomplete first, then completed
-          this.state.todos = [];
+          var completearray = [];
           {this.state.todos.map((todo) =>
             {if (todo.completed == false){
-              this.setState({
-                todos: [...this.state.todos, todo]
-              })
+              completearray.push(todo)
             }}
           )}
-
+            console.log(completearray, "completed")
           {this.state.todos.map((todo) =>
             {if (todo.completed == true){
-              this.setState({
-                todos: [...this.state.todos, todo]
-              })
+              completearray.push(todo)
             }}
           )}
+          console.log(completearray, "finalcomplete");
+          this.setState({
+            todos: completearray
+          })
         }
 
         datesort(){
-          alert("Please sort by another method")
+          this.state.todos.sort((a,b) =>{
+            if (a.created_at > b.created_at){
+              return 1
+            }
+            else{
+              return -1
+            }
+          })
+          this.setState({ state: this.state });
         }
 
 

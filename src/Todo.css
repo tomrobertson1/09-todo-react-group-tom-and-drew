@@ -1,9 +1,9 @@
 #displayToDos{
     margin-top: 20px;
 }
-.row{
+/* .row{
     margin-bottom:2%;
-}
+} */
 /* #displayToDos > .row {
     background-color:#dee9fc;
     border-radius: 5px;
@@ -20,6 +20,35 @@
 }
 
 .container{
+    text-align: center;
+    margin:auto;
+}
+/*
+.container{
+    margin:20px;
+}
+.col-6{
+    text-align: center;
+    margin:auto;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+img{
+    text-align: center;
+    margin:auto;
+}
+*/
+/* .row{
+    margin-top:2%;
+    margin-bottom:2%;
+}  */
+.col-6{
+    text-align: center;
+    margin:auto;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+.unchecked-box{
     text-align: center;
     margin:auto;
 }

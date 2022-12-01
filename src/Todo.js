@@ -49,9 +49,9 @@ class Todo extends Component {
     }
 
     return (
-                <div className="container" >
+                <div className="container" style={{marginTop: "2%"}} >
 
-                  <div className="row"  >
+                  <div className="row" >
 
                     <div className="col" >
                       <img src={check} className="unchecked-box" onClick = {check_complete} />
@@ -64,7 +64,7 @@ class Todo extends Component {
                     </div>
 
                     <div className="col" >
-                      <img src={remove} className="unchecked-box" onClick = {this.handleDelete1}/>
+                      <img src={remove} className="delete-button" onClick = {this.handleDelete1}/>
                       {/* <img src={remove} className="unchecked-box"/> */}
 
                     </div>
