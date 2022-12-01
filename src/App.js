@@ -214,6 +214,7 @@ class App extends Component {
           this.state.todos.sort();
         }
 
+        
         completesort(){
           // this should empty array, put uncomplete first, then completed
           this.state.todos = [];
