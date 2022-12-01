@@ -1,16 +1,7 @@
 #displayToDos{
     margin-top: 20px;
 }
-/* .row{
-    margin-bottom:2%;
-} */
-/* #displayToDos > .row {
-    background-color:#dee9fc;
-    border-radius: 5px;
-    padding:5px 0px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    margin: 15px 0px;
-} */
+
 .container {
     background-color:#dee9fc;
     border-radius: 5px;
@@ -23,25 +14,7 @@
     text-align: center;
     margin:auto;
 }
-/*
-.container{
-    margin:20px;
-}
-.col-6{
-    text-align: center;
-    margin:auto;
-    text-decoration: none;
-    font-size: 1.3em;
-}
-img{
-    text-align: center;
-    margin:auto;
-}
-*/
-/* .row{
-    margin-top:2%;
-    margin-bottom:2%;
-}  */
+
 .col-6{
     text-align: center;
     margin:auto;
