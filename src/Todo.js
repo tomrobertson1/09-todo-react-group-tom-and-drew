@@ -18,18 +18,18 @@ class Todo extends Component {
   handleDelete1(){
     // console.log('test')
     // console.log(this.props.id)
-    {this.props.deleteToDo(this.props.id)}
+    {this.props.deleteToDo(this.props.key)}
 
   }
 
   uncheck1(){
     console.log("uncheck1")
-    {this.props.uncheck(this.props.id)}
+    {this.props.uncheck(this.props.key)}
   }
 
   check1(){
     console.log("check1")
-    {this.props.checkfun(this.props.id)}
+    {this.props.checkfun(this.props.key)}
   }
   
 
@@ -47,20 +47,24 @@ class Todo extends Component {
     }
 
     return (
-                <div className="container" id={this.props.id}>
+                <div className="container" >
 
-                  <div className="row" id="displayToDos">
+                  <div className="row"  >
 
                     <div className="col" >
                       <img src={check} className="unchecked-box" onClick = {check_complete} />
+                      {/* <img src={check} className="unchecked-box"/> */}
+
                     </div>
 
-                    <div className="col-6" id="proptext" >
+                    <div className="col-6"  >
                       {this.props.text}
                     </div>
 
                     <div className="col" >
                       <img src={remove} className="unchecked-box" onClick = {this.handleDelete1}/>
+                      {/* <img src={remove} className="unchecked-box"/> */}
+
                     </div>
 
                   </div>

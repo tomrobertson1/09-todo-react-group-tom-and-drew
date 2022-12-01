@@ -36,32 +36,17 @@ class App extends Component {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) { 
           self.setState({
-            todos: [...self.state.todos, JSON.parse(this.responseText)]
+            todos: JSON.parse(this.responseText)
           })
+          console.log(self.state.todos, "self")
           // console.log(self.state.todos);
-          // var todotesting = JSON.parse(this.responseText);
-          // testing(todotesting)
-          
-          // this.state.todos = self.state.todos;
-          // self.setState({input: ''});
-        }
-        // console.log(self.state.todos, "test")
-        // todoarray = self.state.todos;
-        // console.log(todoarray, "3")
-        
+
+        }        
     };
     xhttp.open("GET", "https://cse204.work/todos", true);
     xhttp.setRequestHeader("x-api-key","54b827-b0e225-c6b963-9c08fd-dc654c");
     xhttp.send();
-    // console.log(todoarray, "yes");
-    // this.state.todos = todoarray;
-    // function testing(array) {
-    //   console.log(array, "yes")
-    //   // // console.log(this.state.todos, "without");
-    //   console.log(this.state.todos)
-    //   // console.log(this.state.todos, "with");
-    // }
-    // console.log(this.state.todos, "test1")
+    console.log(this.state.todos, "this")
    
   }
 
@@ -214,7 +199,7 @@ class App extends Component {
           this.state.todos.sort();
         }
 
-        
+
         completesort(){
           // this should empty array, put uncomplete first, then completed
           this.state.todos = [];
@@ -252,31 +237,29 @@ class App extends Component {
           </div>
         </div>
         <div id='main-page'>
-          {/* <NewTodo addTodo={this.addTodo}/> */}
-          {/* <NewTodo newInput={this.state.newInput} handleinputchange={this.handleinputchange}/> */}
+
+
           <NewTodo addToDo={this.addToDo} alphasort={this.alphasort} completesort={this.completesort} datesort={this.datesort}/>
-  
-          {/* {this.state.todos.map((todo) =>
-         <Todo key={todo.id}
-           text={todo.text} />
-       )} */}
+          {/* <NewTodo /> */}
 
-       {/* {this.state.todos.map((todo) =>
-       console.log(todo.id, "ok")
+
+
+          {this.state.todos.map((todo) =>
+         <Todo key={todo.id} completed={todo.completed}
+           text={todo.text} deleteToDo = {this.deleteToDo} uncheck={this.uncheck} checkfun={this.checkfun} />
        )}
-       
-       {console.log(this.state.todos[0])}
-       {console.log(typeof this.state.todos)}
-       {console.log(this.state.todos.length, "length")} */}
-       {/* {this.state.todos.map((todo) =>
-       console.log(todo.id, "id")
-      
-       )} */}
-       {/* {console.log(this.state.todos)}
 
+      
+       {/* {this.state.todos.map((todo) =>
+         console.log(todo, "printing at end")
+       )}
        {this.state.todos.map((todo) =>
-       console.log(todo.id)
+         console.log(todo.id, "ids")
+         
        )} */}
+
+
+
 
        {/* {console.log(Object.keys(this.state.todos).length)} */}
        {/* {this.state.todos.map((todo) =>
@@ -284,13 +267,8 @@ class App extends Component {
            text={todo.text} />
        )} */}
 
-       {/* {this.state.todos.map((todo) =>
-         <Todo id={todo.id}
-           text={todo.text} />
-       )} */}
 
-          <Todo id="3456" text="Profit" deleteToDo = {this.deleteToDo} uncheck={this.uncheck} checkfun={this.checkfun} completed = "false"/>
-          {/* <Todo id="3456" text="Profit" deleteToDo = {this.deleteToDo} completed = "true"/> */}
+          {/* <Todo key="3456" text="Profit" deleteToDo = {this.deleteToDo} uncheck={this.uncheck} checkfun={this.checkfun} completed = "false"/> */}
 
 
           {/* {this.state.todos.map(({id}) =>{
